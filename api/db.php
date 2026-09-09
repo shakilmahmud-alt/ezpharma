@@ -19,6 +19,18 @@ $db_name = getenv('DB_NAME') ?: (isset($_ENV['DB_NAME']) ? $_ENV['DB_NAME'] : 'h
 $db_user = getenv('DB_USER') ?: (isset($_ENV['DB_USER']) ? $_ENV['DB_USER'] : 'holidaym_admin');
 $db_pass = getenv('DB_PASS') !== false ? getenv('DB_PASS') : (isset($_ENV['DB_PASS']) ? $_ENV['DB_PASS'] : 'msm039raqeeb');
 
+// Clean DB_HOST if user provided url format with https:// or slashes
+$db_host = preg_replace('#^https?://#i', '', $db_host);
+$db_host = preg_replace('#/.*$#', '', $db_host);
+if (strpos($db_host, ':') !== false) {
+    $host_parts = explode(':', $db_host, 2);
+    $db_host = $host_parts[0];
+    if (isset($host_parts[1]) && is_numeric($host_parts[1])) {
+        $db_port = $host_parts[1];
+    }
+}
+$db_host = trim($db_host);
+
 // If host is explicitly localhost, convert to 127.0.0.1 to enforce TCP connection
 if ($db_host === 'localhost') {
     $db_host = '127.0.0.1';
