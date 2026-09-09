@@ -415,12 +415,20 @@ body {
 .dashboard-viewport {
   margin-left: 250px;
   flex: 1;
-  padding: 1.75rem 2.25rem 4rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1.75rem 2.25rem 1.5rem;
+  box-sizing: border-box;
 }
 
 .dashboard-content {
   max-width: 1140px;
+  width: 100%;
   margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Top Hero Banner */
@@ -9220,18 +9228,18 @@ body {
 }
 
 /* ==============================================
-   GLOBAL APP FOOTER
+   GLOBAL APP FOOTER (Sticky to Bottom)
    ============================================== */
 .app-global-footer {
   text-align: center;
-  padding: 24px 16px 30px;
+  padding: 24px 16px 20px;
   font-size: 0.85rem;
   color: var(--text-muted, #64748b);
   border-top: 1px solid var(--border-color, #e2e8f0);
   background: transparent;
   width: 100%;
-  margin-top: 48px;
-  grid-column: 1 / -1;
+  margin-top: auto;
+  padding-top: 2rem;
   box-sizing: border-box;
   clear: both;
 }
