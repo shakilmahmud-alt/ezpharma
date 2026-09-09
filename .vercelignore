@@ -1,0 +1,4 @@
+.git
+.vscode
+*.ps1
+api/schema.sql
