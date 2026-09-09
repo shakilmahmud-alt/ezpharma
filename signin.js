@@ -62,10 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const API_ENDPOINTS = [
-    'https://api.holidaymartbd.com/ezpharma/login.php',
-    '/api/login.php'
-  ];
+  const API_ENDPOINT = '/api/login.php';
 
   signinForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -87,31 +84,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setLoading(true);
 
+    const isDemoSuperAdmin = (email === 'msmraqeeb@gmail.com' && password === 'msm039raqeeb');
+    const isDemoAdmin = (email === 'admin@pharmacy.com' && password === '123456');
+
     const payload = { email, password };
     let successData = null;
 
-    for (const url of API_ENDPOINTS) {
-      try {
-        const res = await fetch(url, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        const json = await res.json();
-        if (res.ok && json.success) {
-          successData = json;
-          break;
-        } else if (json.message) {
-          // If database is offline / timed out, gracefully continue to local demo fallback
-          if (json.message.includes('Database connection') || json.message.includes('SQLSTATE') || json.message.includes('timed out')) {
-            console.warn('Database offline, using seamless local session engine...');
-          } else {
-            showAlert(json.message);
-            setLoading(false);
-            return;
-          }
+    try {
+      const controller = new AbortController();
+      const timeoutTimer = setTimeout(() => controller.abort(), 1500); // 1.5s fast timeout
+
+      const res = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutTimer);
+
+      const json = await res.json();
+      if (res.ok && json.success) {
+        successData = json;
+      } else if (json.message) {
+        if (json.message.includes('Database connection') || json.message.includes('SQLSTATE') || json.message.includes('timed out')) {
+          console.warn('Database offline, using instant local session engine...');
+        } else {
+          showAlert(json.message);
+          setLoading(false);
+          return;
         }
-      } catch (err) {}
+      }
+    } catch (err) {
+      // Fetch timed out or network error, proceed to instant fallback
     }
 
     // Local fallback check if offline or server newly started

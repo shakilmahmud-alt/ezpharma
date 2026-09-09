@@ -40,7 +40,7 @@ $pdo_options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES => false,
-    PDO::ATTR_TIMEOUT => 10,
+    PDO::ATTR_TIMEOUT => 2,
 ];
 
 // If SSL is enabled or required for cloud MySQL (e.g. Aiven, TiDB)
