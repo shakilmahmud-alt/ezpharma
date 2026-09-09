@@ -382,8 +382,13 @@ body {
 }
 
 .sidebar-footer {
-  padding: 1rem 0.75rem;
+  height: 64px;
+  min-height: 64px;
+  padding: 0 0.75rem;
   border-top: 1px solid var(--sidebar-border);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .btn-signout {
@@ -418,7 +423,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 1.75rem 2.25rem 1.5rem;
+  padding: 1.75rem 2.25rem 0;
   box-sizing: border-box;
 }
 
@@ -429,6 +434,8 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
 }
 
 /* Top Hero Banner */
@@ -9231,16 +9238,21 @@ body {
    GLOBAL APP FOOTER (Sticky to Bottom)
    ============================================== */
 .app-global-footer {
-  text-align: center;
-  padding: 24px 16px 20px;
+  width: calc(100% + 4.5rem);
+  margin-left: -2.25rem;
+  margin-right: -2.25rem;
+  margin-top: auto;
+  height: 64px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--sidebar-border, #e2e8f0);
+  background: transparent;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
   font-size: 0.85rem;
   color: var(--text-muted, #64748b);
-  border-top: 1px solid var(--border-color, #e2e8f0);
-  background: transparent;
-  width: 100%;
-  margin-top: auto;
-  padding-top: 2rem;
-  box-sizing: border-box;
   clear: both;
 }
 
@@ -9262,8 +9274,8 @@ body {
 }
 
 [data-theme="dark"] .app-global-footer {
-  border-top-color: #334155;
-  background: #0f172a;
+  border-top-color: var(--sidebar-border, #334155);
+  background: transparent;
   color: #94a3b8;
 }
 
