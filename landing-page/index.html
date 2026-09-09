@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>EZ Pharma — Choose a Demo</title>
+  <meta name="description" content="EZ Pharma SaaS portal - Choose between Marketing Site frontend or Admin Dashboard backend." />
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/landing-page.css" />
+</head>
+<body>
+  <div class="static-page-wrapper">
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <main class="container">
+      <!-- Brand Header -->
+      <header class="header-section">
+        <div class="brand-badge">
+          <img id="brand-logo-img" src="/assets/logo-light.png" alt="EZ Pharma" class="brand-logo" />
+        </div>
+        <h1 class="main-title">Choose a demo</h1>
+        <p class="subtitle">Open the public frontend or the authenticated backend in a new tab.</p>
+      </header>
+
+      <!-- Cards Grid -->
+      <div class="cards-grid">
+        <!-- Frontend Card -->
+        <div class="demo-card" id="card-frontend">
+          <div class="card-top-row">
+            <div class="icon-box icon-frontend">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+                <line x1="8" x2="16" y1="21" y2="21"></line>
+                <line x1="12" x2="12" y1="17" y2="21"></line>
+              </svg>
+            </div>
+            <a href="/" class="external-icon-btn" aria-label="Open frontend in new tab">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+
+          <span class="card-category">FRONTEND</span>
+          <h2 class="card-title">Marketing site</h2>
+          <p class="card-description">
+            Landing page with features, pricing, testimonials, and self-serve signup.
+          </p>
+
+          <ul class="features-list">
+            <li><span class="bullet-dot"></span> Hero &amp; features</li>
+            <li><span class="bullet-dot"></span> Pricing plans</li>
+            <li><span class="bullet-dot"></span> Online signup</li>
+          </ul>
+
+          <div class="card-footer">
+            <a href="/" class="action-link" id="link-frontend">
+              <span>Open frontend</span>
+              <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Backend Card -->
+        <div class="demo-card" id="card-backend">
+          <div class="card-top-row">
+            <div class="icon-box icon-backend">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect>
+                <rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect>
+                <line x1="6" x2="6.01" y1="6" y2="6"></line>
+                <line x1="6" x2="6.01" y1="18" y2="18"></line>
+              </svg>
+            </div>
+            <a href="/signin" class="external-icon-btn" aria-label="Open backend in new tab">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+
+          <span class="card-category">BACKEND</span>
+          <h2 class="card-title">Admin dashboard</h2>
+          <p class="card-description">
+            Sign in to the pharmacy dashboard or platform admin console.
+          </p>
+
+          <ul class="features-list">
+            <li><span class="bullet-dot"></span> POS &amp; inventory</li>
+            <li><span class="bullet-dot"></span> AI tools</li>
+            <li><span class="bullet-dot"></span> Super admin</li>
+          </ul>
+
+          <div class="card-footer">
+            <a href="/signin" class="action-link" id="link-backend">
+              <span>Open backend</span>
+              <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- Global App Footer -->
+        <footer class="app-global-footer">
+          <p>Developed by: <a href="https://shakilmahmud.vercel.app/" target="_blank" rel="noopener noreferrer" class="footer-dev-link">Shakil Mahmud</a> | Version 1.0.0.0</p>
+        </footer>
+      </div>
+    </main>
+
+    <!-- Floating Theme Toggle Button -->
+    <aside class="theme-toggle-container">
+      <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle Light / Dark theme">
+        <svg class="theme-icon gear-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+      </button>
+    </aside>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — EZ Pharma</title>
+  <meta name="description" content="Sign in to your EZ Pharma dashboard or Platform Administration console." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/favicon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/signin.css" />
+</head>
+<body>
+  <!-- Ambient background glow accents -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <div class="signin-page-wrapper">
+    <main class="signin-container single-card">
+      <div class="signin-card-box">
+        <div class="signin-brand-header">
+          <a href="/" class="brand-logo-wrap">
+            <img id="brand-logo-img" src="/assets/logo-light.png" alt="EZ Pharma" class="brand-logo" />
+          </a>
+          <h1 class="signin-title">Welcome back</h1>
+          <p class="brand-subtitle">Sign in to your pharmacy management dashboard or admin console</p>
+        </div>
+
+        <!-- Alert box -->
+        <div id="alert-box" class="alert-box hidden" role="alert"></div>
+
+        <form id="signin-form" novalidate>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <div class="input-with-icon">
+              <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-with-icon">
+              <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password" />
+            </div>
+          </div>
+
+          <button type="submit" id="submit-btn" class="btn-signin">
+            <span id="btn-text">Sign In</span>
+            <div class="spinner hidden" id="btn-spinner"></div>
+          </button>
+        </form>
+
+        <!-- Quick Fill Demo Accounts Table -->
+        <div class="demo-accounts-table-wrap">
+          <div class="demo-table-header-title">
+            <span class="demo-header-tag">Demo Access</span>
+            <span class="demo-hint-click">Click copy or row to autofill</span>
+          </div>
+          <div class="demo-credentials-table-box">
+            <table class="demo-table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Email</th>
+                  <th>Password</th>
+                  <th class="text-center">Copy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="demo-fill-row" data-email="admin@pharmacy.com" data-pass="123456" title="Click to fill Pharmacy Owner credentials">
+                  <td>
+                    <span class="user-role-badge badge-pharm">Pharmacy Owner</span>
+                  </td>
+                  <td><span class="cred-text">admin@pharmacy.com</span></td>
+                  <td><span class="cred-text">123456</span></td>
+                  <td class="text-center">
+                    <button type="button" class="btn-copy-autofill" data-email="admin@pharmacy.com" data-pass="123456" title="Auto-fill credentials">
+                      <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      <span class="copy-label">Copy</span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="signin-footer-links">
+          <p>Don't have a pharmacy account? <a href="/signup" class="link-highlight">Start your Pharmacy</a></p>
+        </div>
+
+        <!-- Global App Footer -->
+        <footer class="app-global-footer">
+          <p>Developed by: <a href="https://shakilmahmud.vercel.app/" target="_blank" rel="noopener noreferrer" class="footer-dev-link">Shakil Mahmud</a> | Version 1.0.0.0</p>
+        </footer>
+      </div>
+    </main>
+
+    <!-- Floating Theme Toggle Button -->
+    <aside class="theme-toggle-container">
+      <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle Light / Dark theme">
+        <svg class="theme-icon gear-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+      </button>
+    </aside>
+  </div>
+
+  <script src="/signin.js"></script>
+</body>
+</html>

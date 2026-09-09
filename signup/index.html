@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Your Pharmacy Account — EZ Pharma</title>
+  <meta name="description" content="Sign up for EZ Pharma multi-tenant pharmacy SaaS platform. Live in minutes with automated payment gateways and quick onboarding." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/favicon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/signup.css" />
+</head>
+<body>
+  <!-- Ambient background glow accents -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <div class="signup-page-wrapper">
+    <!-- Top Header Bar -->
+    <header class="signup-topbar">
+      <div class="signup-topbar-inner">
+        <a href="/" class="brand-link">
+          <img id="brand-logo-img" src="/assets/logo-light.png" alt="EZ Pharma" class="signup-logo" />
+        </a>
+
+        <div class="signin-redirect">
+          <span>Already have an account?</span>
+          <a href="/signin" class="link-signin">Sign in →</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Signup Container -->
+    <main class="signup-main-container">
+      <div class="signup-grid">
+        <!-- Left Column: Form Card -->
+        <div class="form-card">
+          <div class="form-card-header">
+            <h1 class="form-title">Create your pharmacy account</h1>
+            <p class="form-subtitle">
+              Takes about a minute. After payment, you can sign in and start adding products and staff straight away.
+            </p>
+          </div>
+
+          <!-- Alert message box -->
+          <div id="alert-box" class="alert-box hidden" role="alert"></div>
+
+          <form id="signup-form" novalidate>
+            <!-- Pharmacy Details Section -->
+            <div class="form-section">
+              <span class="section-label">PHARMACY DETAILS</span>
+              
+              <div class="input-grid-2">
+                <div class="form-group">
+                  <label for="pharmacy_name">Pharmacy name <span class="required-star">*</span></label>
+                  <input type="text" id="pharmacy_name" name="pharmacy_name" placeholder="Sunrise Pharmacy" required />
+                </div>
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input type="text" id="address" name="address" placeholder="123 Main St, City" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="+880 1712 345678" />
+              </div>
+            </div>
+
+            <!-- Admin Account Section -->
+            <div class="form-section">
+              <span class="section-label">YOUR ADMIN ACCOUNT</span>
+
+              <div class="input-grid-2">
+                <div class="form-group">
+                  <label for="full_name">Full name <span class="required-star">*</span></label>
+                  <input type="text" id="full_name" name="full_name" placeholder="Jane Doe" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email <span class="required-star">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="you@pharmacy.com" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password <span class="required-star">*</span></label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required minlength="6" />
+                <span class="input-hint">At least 6 characters.</span>
+              </div>
+            </div>
+
+            <!-- Plan Selection Section -->
+            <div class="form-section">
+              <span class="section-label">CHOOSE YOUR PLAN</span>
+
+              <div class="plans-selector-grid">
+                <!-- Monthly Plan Option -->
+                <div class="plan-option-card active" data-plan="monthly" id="plan-monthly">
+                  <div class="plan-option-top">
+                    <span class="plan-name">Monthly</span>
+                  </div>
+                  <div class="plan-option-price">
+                    <span class="plan-currency">BDT</span>
+                    <span class="plan-amount">400</span>
+                  </div>
+                  <span class="plan-period-text">Billed every month</span>
+                </div>
+
+                <!-- Yearly Plan Option -->
+                <div class="plan-option-card" data-plan="yearly" id="plan-yearly">
+                  <div class="plan-option-top">
+                    <span class="plan-name">Yearly</span>
+                    <span class="best-value-badge">BEST VALUE</span>
+                  </div>
+                  <div class="plan-option-price">
+                    <span class="plan-currency">BDT</span>
+                    <span class="plan-amount">4,500</span>
+                  </div>
+                  <span class="plan-period-text">Save 10% vs monthly</span>
+                </div>
+              </div>
+              <input type="hidden" id="selected_plan" name="plan" value="monthly" />
+            </div>
+
+            <!-- Terms & Consent Checkbox -->
+            <div class="terms-group">
+              <label class="checkbox-container">
+                <input type="checkbox" id="terms_agreed" name="terms_agreed" required />
+                <span class="checkmark"></span>
+                <span class="terms-text">
+                  I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>, and I authorise EZ Pharma to process payment for the selected subscription plan.
+                </span>
+              </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submit-btn" class="btn-submit">
+              <span id="btn-text">Continue to payment • BDT 400</span>
+              <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+              <div class="spinner hidden" id="btn-spinner"></div>
+            </button>
+
+            <p class="payment-disclaimer">
+              Payment is processed securely via active platform gateways. Your subscription activates automatically upon payment confirmation.
+            </p>
+          </form>
+        </div>
+
+        <!-- Right Column: Features & Benefits Sidebar -->
+        <aside class="sidebar-cards">
+          <!-- What You Get Card -->
+          <div class="side-card side-card-features">
+            <h3 class="side-card-title">What you get</h3>
+            <ul class="side-benefits-list">
+              <li>
+                <svg class="benefit-check" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Isolated, per-pharmacy data</span>
+              </li>
+              <li>
+                <svg class="benefit-check" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Unlimited products, sales, customers</span>
+              </li>
+              <li>
+                <svg class="benefit-check" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>AI prescription processing</span>
+              </li>
+              <li>
+                <svg class="benefit-check" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Demand forecasts and reorder suggestions</span>
+              </li>
+              <li>
+                <svg class="benefit-check" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Automated self-serve renewal</span>
+              </li>
+              <li>
+                <svg class="benefit-check" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Role-based staff accounts</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Trust Card 1 -->
+          <div class="side-card trust-mini-card">
+            <div class="trust-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="trust-card-title">Secure by design</h4>
+              <p class="trust-card-text">
+                Each pharmacy is isolated in our shared database. Staff at one location can never see data from another.
+              </p>
+            </div>
+          </div>
+
+          <!-- Trust Card 2 -->
+          <div class="side-card trust-mini-card">
+            <div class="trust-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                <line x1="2" x2="22" y1="10" y2="10"></line>
+              </svg>
+            </div>
+            <div>
+              <h4 class="trust-card-title">Secure Checkout</h4>
+              <p class="trust-card-text">
+                We never store sensitive banking credentials. Verified payment gateways handle all transactions directly.
+              </p>
+            </div>
+          </div>
+
+          <!-- Trust Card 3 -->
+          <div class="side-card trust-mini-card">
+            <div class="trust-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div>
+              <h4 class="trust-card-title">Live in minutes</h4>
+              <p class="trust-card-text">
+                After payment you can sign in immediately and start adding products, staff, and customers.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Global App Footer -->
+      <footer class="app-global-footer">
+        <p>Developed by: <a href="https://shakilmahmud.vercel.app/" target="_blank" rel="noopener noreferrer" class="footer-dev-link">Shakil Mahmud</a> | Version 1.0.0.0</p>
+      </footer>
+    </main>
+
+    <!-- Floating Theme Toggle Button -->
+    <aside class="theme-toggle-container">
+      <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle Light / Dark theme">
+        <svg class="theme-icon gear-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+      </button>
+    </aside>
+  </div>
+
+  <script src="/signup.js"></script>
+</body>
+</html>
+
+
+

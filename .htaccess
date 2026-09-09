@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Handle Admin sub-routes
+  RewriteRule ^admin(/.*)?$ admin.html [L,QSA]
+
+  # Handle clean HTML URLs
+  RewriteRule ^landing-page/?$ landing-page.html [L,QSA]
+  RewriteRule ^signup/?$ signup.html [L,QSA]
+  RewriteRule ^signin/?$ signin.html [L,QSA]
+  RewriteRule ^dashboard/?$ dashboard.html [L,QSA]
+
+  # Existing files and directories
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>

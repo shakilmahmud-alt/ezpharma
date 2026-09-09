@@ -1,0 +1,484 @@
+:root {
+  /* Brand Color Palette - EZ Pharma Blues */
+  --primary-blue: #0052ff;
+  --primary-blue-hover: #003ecb;
+  --primary-navy: #002266;
+  --primary-cyan: #00d2ff;
+  
+  /* Light Theme Tokens */
+  --bg-gradient-start: #e1f3ec;
+  --bg-gradient-end: #d7ede7;
+  --bg-page: #dff0ea;
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.06);
+  --card-shadow: 0 10px 30px -10px rgba(0, 45, 128, 0.08), 0 20px 40px -15px rgba(0, 0, 0, 0.04);
+  --card-hover-shadow: 0 20px 40px -10px rgba(0, 82, 255, 0.14), 0 30px 60px -15px rgba(0, 0, 0, 0.08);
+  
+  --text-main: #0f172a;
+  --text-muted: #526071;
+  --text-subtle: #7f8e9d;
+  
+  --frontend-accent: #0066f5;
+  --frontend-badge-bg: #0052ff;
+  --backend-badge-bg: #0f172a;
+  
+  --btn-toggle-bg: #ffffff;
+  --btn-toggle-color: #334155;
+  --btn-toggle-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  --brand-pill-bg: #ffffff;
+  --brand-pill-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Tokens */
+  --bg-gradient-start: #080d1a;
+  --bg-gradient-end: #0c1427;
+  --bg-page: #080d1a;
+  --card-bg: #111b2e;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 82, 255, 0.06);
+  --card-hover-shadow: 0 20px 45px -10px rgba(0, 82, 255, 0.25), 0 0 30px rgba(0, 82, 255, 0.12);
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-subtle: #64748b;
+  
+  --frontend-accent: #38bdf8;
+  --frontend-badge-bg: #0052ff;
+  --backend-badge-bg: #1e293b;
+  
+  --btn-toggle-bg: #1e293b;
+  --btn-toggle-color: #f1f5f9;
+  --btn-toggle-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --brand-pill-bg: #131f36;
+  --brand-pill-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Strict non-scrollable screen */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+body {
+  background-color: var(--bg-page);
+  background-image: radial-gradient(at 50% 0%, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  color: var(--text-main);
+  transition: background-color 0.35s ease, color 0.35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.static-page-wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Ambient glow accents */
+.ambient-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.25;
+  z-index: 0;
+  transition: opacity 0.5s ease;
+}
+
+.glow-1 {
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, var(--primary-cyan) 0%, rgba(0, 82, 255, 0.2) 70%);
+}
+
+.glow-2 {
+  bottom: -200px;
+  right: 10%;
+  background: radial-gradient(circle, var(--primary-blue) 0%, transparent 70%);
+  opacity: 0.15;
+}
+
+/* Main Container */
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Header Section */
+.header-section {
+  text-align: center;
+  margin-bottom: 2.2rem;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.3rem;
+  background: var(--brand-pill-bg);
+  border-radius: 9999px;
+  box-shadow: var(--brand-pill-shadow);
+  border: 1px solid var(--card-border);
+  margin-bottom: 1.1rem;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
+}
+
+.brand-badge:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.brand-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.main-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 0.98rem;
+  font-weight: 450;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.45;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+  width: 100%;
+}
+
+/* Individual Demo Card */
+.demo-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2rem 1.85rem;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s ease, 
+              border-color 0.35s ease,
+              background-color 0.3s ease;
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+#card-frontend {
+  animation-delay: 0.1s;
+}
+
+#card-backend {
+  animation-delay: 0.2s;
+}
+
+.demo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+  border-color: rgba(0, 82, 255, 0.25);
+}
+
+/* Card Top Row */
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.icon-box svg {
+  width: 22px;
+  height: 22px;
+}
+
+.icon-frontend {
+  background: linear-gradient(135deg, #0052ff 0%, #0099ff 100%);
+  box-shadow: 0 6px 16px rgba(0, 82, 255, 0.25);
+}
+
+.icon-backend {
+  background: var(--backend-badge-bg);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.2);
+}
+
+.demo-card:hover .icon-box {
+  transform: scale(1.08);
+}
+
+.external-icon-btn {
+  color: var(--text-subtle);
+  background: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.external-icon-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.external-icon-btn:hover {
+  color: var(--primary-blue);
+  background: rgba(0, 82, 255, 0.08);
+}
+
+/* Category Badge */
+.card-category {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--frontend-accent);
+  margin-bottom: 0.45rem;
+  display: block;
+}
+
+/* Title & Description */
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.02em;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.3rem;
+  min-height: 42px;
+}
+
+/* Features List */
+.features-list {
+  list-style: none;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.features-list li {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.bullet-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--text-subtle);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Card Footer & Action Link */
+.card-footer {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: gap 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+}
+
+.action-link .arrow-icon {
+  width: 17px;
+  height: 17px;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.action-link:hover {
+  color: var(--primary-blue-hover);
+  gap: 0.75rem;
+}
+
+.action-link:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Floating Theme Switcher Button */
+.theme-toggle-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+}
+
+.theme-toggle-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--btn-toggle-bg);
+  color: var(--btn-toggle-color);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--btn-toggle-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.3s ease, 
+              background-color 0.3s ease, 
+              color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1) rotate(18deg);
+  box-shadow: 0 6px 20px rgba(0, 82, 255, 0.22);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Keyframes */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-y: auto; /* allow scroll on small screens if height exceeds */
+    position: static;
+  }
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .main-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* ==============================================
+   GLOBAL APP FOOTER
+   ============================================== */
+.app-global-footer {
+  text-align: center;
+  padding: 16px 12px 0 12px;
+  font-size: 0.82rem;
+  color: var(--text-muted, #64748b);
+  width: 100%;
+  margin-top: 15px;
+}
+
+.app-global-footer p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.app-global-footer a.footer-dev-link {
+  color: var(--primary-blue, #0052ff);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.app-global-footer a.footer-dev-link:hover {
+  text-decoration: underline;
+  color: #003ebd;
+}
+
+[data-theme="dark"] .app-global-footer {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .app-global-footer a.footer-dev-link {
+  color: #60a5fa;
+}

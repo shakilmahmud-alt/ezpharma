@@ -1,0 +1,11 @@
+# OS & Editor files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.vscode/
+.idea/
+
+# Environment / local scratch
+update_superadmin.php
+sync_live_to_local.php

@@ -1,0 +1,14 @@
+{
+  "name": "ez-pharma",
+  "version": "1.0.0",
+  "description": "EZ Pharma - Enterprise Multi-Tenant Cloud Pharmacy Management Platform",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve . -p 3000",
+    "start": "npx -y serve . -p 3000",
+    "serve": "npx -y serve . -p 3000"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
